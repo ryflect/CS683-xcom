@@ -3,6 +3,7 @@ from arena import Arena
 from agent import HAgent, AAgent
 
 
+# place the humans on the arena
 def place_soldiers(n, arena, agents):
     x = 0
     y = 0
@@ -13,12 +14,13 @@ def place_soldiers(n, arena, agents):
     return arena, agents
 
 
+# place the alien agents on the arena
 def place_targets(n, arena, targets):
     for i in range(n):
         while True:
             x = np.rint(np.array([(arena.size - 1) * np.random.rand(1),
                                   (arena.size - 1) * np.random.rand(1)]))
-            if x[0] > 7 and x[1] > 7:
+            if x[0] > 7 or x[1] > 7:
                 break
         x = [int(i) for i in x]
 
@@ -26,3 +28,8 @@ def place_targets(n, arena, targets):
         arena.arena[x[0], x[1]] = 2
 
     return arena, targets
+
+
+# update the targets, damage and accuracy for every agent
+def update_sights():
+    return

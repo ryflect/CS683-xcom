@@ -13,6 +13,7 @@ class HAgent(object):
         self.targets = 0
         self.damage = 0
         self.accuracy = 0
+        self.moves = 2
 
     def get_vision(self):
         self.vision = [[i, j] for i in range(self.pos[0] - 20, self.pos[0] + 20) for j in
@@ -37,6 +38,7 @@ class AAgent(object):
         self.targets = 0
         self.damage = 0
         self.accuracy = 0
+        self.moves = 2
 
     def get_vision(self):
         self.vision = [[i, j] for i in range(self.pos[0] - 20, self.pos[0] + 20) for j in
