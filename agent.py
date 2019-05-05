@@ -5,8 +5,10 @@ class HAgent(object):
 
     def __init__(self, position):
         self.pos = position
-        self.health = 100
-        self.ammo = 10
+        # on normal, base HP of five
+        self.health = 5
+        # for assault rifle, base ammo of five
+        self.ammo = 5
         self.cover = 0
         self.vision = self.get_vision()
         self.range = self.get_range()
@@ -14,6 +16,13 @@ class HAgent(object):
         self.damage = 0
         self.accuracy = 0
         self.moves = 2
+        # base movement range is 7 tiles
+        self.move_range=7
+        # base aim percentage is 65 pp
+        self.aim=65
+        self.base_damage=3
+        # base crit percentage of 10pp
+        self.base_crit=10
 
     def get_vision(self):
         self.vision = [[i, j] for i in range(self.pos[0] - 20, self.pos[0] + 20) for j in
@@ -24,14 +33,17 @@ class HAgent(object):
         self.range = [[i, j] for i in range(self.pos[0] - 10, self.pos[0] + 10) for j in
                       range(self.pos[1] - 10, self.pos[1] + 10) if i >= 0 and j >= 0]
         return self.range
+    
 
 
 class AAgent(object):
 
     def __init__(self, position):
         self.pos = position
-        self.health = 50
-        self.ammo = 10
+        # sectoid base hp is 3
+        self.health = 3
+        # sectoid base ammo is unlimited
+        self.ammo = 999
         self.cover = 0
         self.vision = self.get_vision()
         self.range = self.get_range()
@@ -39,6 +51,12 @@ class AAgent(object):
         self.damage = 0
         self.accuracy = 0
         self.moves = 2
+        # base movement range is 7 tiles
+        self.move_range=7
+        # base aim percentage is 65 pp
+        self.aim=65
+        self.base_damage=3
+        self.base_crit=0
 
     def get_vision(self):
         self.vision = [[i, j] for i in range(self.pos[0] - 20, self.pos[0] + 20) for j in
